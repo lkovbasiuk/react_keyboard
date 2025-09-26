@@ -11,7 +11,7 @@ export class App extends React.Component<{}, State> {
     isFirstPressed: false,
   };
 
-  handleKeyDown = (event: KeyboardEvent) => {
+  handleKeyUp = (event: KeyboardEvent) => {
     this.setState({
       pressedKey: event.key,
       isFirstPressed: true,
@@ -19,11 +19,11 @@ export class App extends React.Component<{}, State> {
   };
 
   componentDidMount(): void {
-    document.addEventListener('keydown', this.handleKeyDown);
+    document.addEventListener('keyup', this.handleKeyUp);
   }
 
   componentWillUnmount(): void {
-    document.removeEventListener('keydown', this.handleKeyDown);
+    document.removeEventListener('keyup', this.handleKeyUp);
   }
 
   render() {
